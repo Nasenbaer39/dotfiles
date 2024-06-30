@@ -50,6 +50,17 @@ window#waybar {
     transition-duration: .5s;
 }
 
+.modules-center {
+    background-color: @accent;
+    margin-bottom: 10px;
+    padding: 0px;
+    border: 0px;
+    border-radius: 0px 0px 20px 20px;
+}
+
+window#waybar.empty .modules-center {
+    background-color: transparent;
+}
 
 /*---[Workspaces]---*/
 
@@ -92,21 +103,21 @@ window#waybar {
 
 #window {
     background: @base;
-    margin: 0px 0px 5px 0px;
     padding: 0px 15px 0px 15px;
-    border-radius: 0px 0px 15px 0px;
+    border-radius: 0px 0px 15px 15px;
     border: 0px;
     font-style: normal;
     font-size: 16px;
     color: @subtext1;
+    transition: all 0.3s ease-in-out;
 }
 
 window#waybar.empty #window {
     background: transparent;
 }
 
-.modules-center > widget:first-child > #window {
-    border-radius: 0px 0px 15px 15px
+.modules-center.empty {
+    background: transparent;
 }
 
 
@@ -114,7 +125,6 @@ window#waybar.empty #window {
 
 #custom-media {
     background-color: @accent;
-    margin: 0px 0px 5px 0px;
     border-radius: 0px 0px 0px 15px;
     border: 0px;
     font-style: normal;
@@ -131,11 +141,6 @@ window#waybar.empty #window {
 #custom-media.custom-vlc {
     background-color: @accent; 
     color: @base;
-}
-
-#mode {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
 }
 
 #clock,
