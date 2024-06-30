@@ -7,12 +7,12 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "hyprland/workspaces",
+        "hyprland/workspaces"
         // "sway/mode",
-        // "sway/scratchpad",
-        "custom/media"
+        // "sway/scratchpad", 
     ],
     "modules-center": [
+        "custom/media",
         "hyprland/window"
     ],
     "modules-right": [
@@ -47,6 +47,13 @@
         "persistent-workspaces": {
             "*": 5
         }       
+    },
+
+    "hyprland/window": {
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "$1"
+	},
+	"seperate-outputs": true
     },
 
     "keyboard-state": {
