@@ -129,7 +129,8 @@ window#waybar.empty #window {
 }
 
 #custom-media.custom-vlc {
-    background-color: #ffa000;
+    background-color: @accent; 
+    color: @base;
 }
 
 #mode {
