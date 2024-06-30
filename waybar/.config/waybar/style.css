@@ -28,6 +28,11 @@
 @define-color crust #11111b;
 
 
+/*---[Accent Color]---*/
+
+@define-color accent @lavender;
+
+
 /*---[General]---*/
 
 * {
@@ -70,7 +75,7 @@ window#waybar {
 
 #workspaces button.active {
     color: @base;
-    background: @lavender;
+    background: @accent;
     border-radius: 15px;
     min-width: 40px;
     transition: all 0.3s ease-in-out;
@@ -89,28 +94,37 @@ window#waybar {
     background: @base;
     margin: 0px 0px 5px 0px;
     padding: 0px 15px 0px 15px;
-    border-radius: 0px 0px 15px 15px;
+    border-radius: 0px 0px 15px 0px;
     border: 0px;
     font-style: normal;
     font-size: 16px;
     color: @subtext1;
 }
 
-#window#waybar.empty #window {
-    background-color: transparent;
+window#waybar.empty #window {
+    background: transparent;
+}
+
+.modules-center > widget:first-child > #window {
+    border-radius: 0px 0px 15px 15px
 }
 
 
 /*---[Custom Media]---*/
 
 #custom-media {
-    background-color: #66cc99;
+    background-color: @accent;
+    margin: 0px 0px 5px 0px;
+    border-radius: 0px 0px 0px 15px;
+    border: 0px;
+    font-style: normal;
+    font-size: 13px;
     color: @base;
     min-width: 100px;
 }
 
 #custom-media.custom-spotify {
-    background-color: @lavender;
+    background-color: @accent;
     color: @base;
 }
 
