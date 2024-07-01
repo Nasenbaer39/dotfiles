@@ -47,6 +47,7 @@
     },
 
     "hyprland/window": {
+	"max-length": 40,
         "rewrite": {
             "(.*) — Mozilla Firefox": "$1",
 	    "(.*) - YouTube (.*)": " $1"
