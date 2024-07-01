@@ -125,7 +125,7 @@ window#waybar.empty #window {
 
 #custom-media {
     background-color: @accent;
-    border-radius: 0px 0px 0px 15px;
+    border-radius: 0px 0px 15px 15px;
     border: 0px;
     font-style: normal;
     font-size: 13px;
