@@ -54,7 +54,7 @@ window#waybar {
     margin-bottom: 10px;
     padding: 0px;
     border: 0px;
-    border-radius: 0px 0px 20px 20px;
+    border-radius: 0px 0px 1.5rem 1.5rem;
 }
 
 window#waybar.empty .modules-center {
@@ -99,8 +99,7 @@ window#waybar.empty .modules-center {
 #window {
     background: @base;
     padding: 0px 15px 0px 15px;
-    border-radius: 0px 0px 15px 15px;
-    border: 0px;
+    border-radius: 0px 0px 1.3rem 1.5rem;
     font-style: normal;
     color: @subtext1;
     transition: all 0.3s ease-in-out;
@@ -119,9 +118,7 @@ window#waybar.empty #window {
 
 #custom-media {
     background-color: @accent;
-    border-radius: 0px 0px 1rem 1rem;
-    border: 0px;
-    font-style: normal;
+    border-radius: 0px 0px 1.5rem 1.5rem;
     color: @base;
     min-width: 100px;
 }
