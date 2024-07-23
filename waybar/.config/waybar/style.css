@@ -37,7 +37,7 @@
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome;
+    font-family: FantasqueSansMono Nerd Font;
     font-size: 14px;
     border: none;
     border-radius: 0px;
@@ -65,7 +65,7 @@ window#waybar.empty .modules-center {
 
 #workspaces {
     background: @base;
-    border-radius: 0rem 1rem 1rem 0rem;
+    border-radius: 0px 1rem 1rem 0px;
     padding-right: 0.5rem;
     margin: 5px 0px; 
     color: @subtext1;
@@ -224,6 +224,10 @@ window#waybar.empty #window {
     color: @green;
 }
 
+#battery.warning:not(.charging) {
+    color: @orange;
+}
+
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
     color: @red;
@@ -255,5 +259,4 @@ window#waybar.empty #window {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
 }

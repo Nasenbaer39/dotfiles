@@ -13,13 +13,13 @@
         "hyprland/window"
     ],
     "modules-right": [
-        "pulseaudio",
+        "pulseaudio", 
+        "backlight",
         "network",
-        "power-profiles-daemon",
         "cpu",
         "memory",
         "temperature",
-        "backlight",
+        "power-profiles-daemon",
         "battery",
         "clock",
         "tray"
@@ -84,7 +84,7 @@
 
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
+        "format": "{icon} {percent}%",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
 
@@ -95,10 +95,10 @@
             "critical": 15
         },
         "format": "{icon} {capacity}%",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
+        "format-full": "{icon} {capacity}% {icon}",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
@@ -124,14 +124,9 @@
 
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float
-        "format": "{icon}   {volume}%",
-        "format-bluetooth": "{icon}   {volume}% {format_source}",
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
