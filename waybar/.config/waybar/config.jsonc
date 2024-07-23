@@ -65,7 +65,7 @@
     },
 
     "cpu": {
-        "format": "  {usage}%",
+        "format": " {usage}%",
         "tooltip": false
     },
 
@@ -94,7 +94,7 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
+        "format": "{icon} {capacity}%",
         "format-full": "{capacity}% {icon}",
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
@@ -117,9 +117,9 @@
     "network": {
         "format-wifi": " {signalStrength}%",
         "format-ethernet": "",  
-        "tooltip-format-wifi": " {ifname}", 
+        "tooltip-format-wifi": " {essid}", 
         "format-disconnected": "⚠",
-        "tooltip-format-disconnected": "⚠ Disconnected"
+        "tooltip-format-disconnected": "⚠ No Internet"
     },
 
     "pulseaudio": {
