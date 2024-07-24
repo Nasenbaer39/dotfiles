@@ -195,6 +195,10 @@ window#waybar {
     border-radius: 0 1rem 1rem 0;
 }
 
+window.eDP-1 #power-profiles-daemon {
+    border-radius: 0;
+}
+
 #power-profiles-daemon.performance {
     color: @red;
 }
@@ -210,12 +214,17 @@ window#waybar {
 
 /*---[Backlight]---*/
 
-#backlight {}
+#backlight {
+    padding-left: 0;
+}
 
 
 /*---[Battery]---*/
 
-#battery {}
+#battery {
+    border-radius: 0 1rem 1rem 0;
+    padding-left: 0;
+}
 
 #battery.charging, #battery.plugged {
     color: @green;
