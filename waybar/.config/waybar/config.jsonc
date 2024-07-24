@@ -57,8 +57,7 @@
 
     "tray": {
         "icon-size": 21,
-        "spacing": 10,
-        "escape": true
+        "spacing": 5
     },
 
     "clock": {
@@ -104,8 +103,8 @@
     },
 
     "backlight": {
-        // "device": "acpi_video1",
         "format": "{icon} {percent}",
+        "tooltip": false,
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
 
@@ -184,7 +183,7 @@
 
     "custom/lock": {
         "tooltip": false,
-        "on-click": "sh -c '(sleep 0.5s; hyprlock --grace 0)' & disown",
+        "on-click": "hyprlock &",
         "format": ""
     },
 

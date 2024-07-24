@@ -41,6 +41,10 @@
     font-size: 14px;
 }
 
+window.eDP-1 * {
+    font-size: 15px;
+}
+
 window#waybar { 
     background: transparent;
     transition-property: background-color;
