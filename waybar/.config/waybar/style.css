@@ -80,7 +80,7 @@ window#waybar {
 }
 
 #temperature.critical {
-    background-color: @red;
+    color: @red;
 }
 
 
