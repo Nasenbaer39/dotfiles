@@ -39,8 +39,6 @@
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: FantasqueSansMono Nerd Font;
     font-size: 14px;
-    border: none;
-    border-radius: 0px;
 }
 
 window#waybar { 
@@ -49,24 +47,45 @@ window#waybar {
     transition-duration: .5s;
 }
 
-.modules-center {
-    background-color: @accent;
-    margin-bottom: 10px;
-    padding: 0px;
-    border: 0px;
-    border-radius: 0px 0px 1.5rem 1.5rem;
+#cpu,
+#memory,
+#temperature,
+#workspaces {
+    background-color: @base;
+    color: @subtext1;
+    padding: 0rem 1rem; 
+    margin: 5px 0px;
 }
 
-window#waybar.empty .modules-center {
-    background-color: transparent;
+/*---[System]---*/
+
+#cpu {
+    padding-left: 1rem;
+    border-radius: 1rem 0 0 1rem;
+    margin-left: 1rem;
 }
+
+#memory {
+    padding: 0rem;
+}
+
+#temperature {
+    padding-right: 1rem;
+    margin-right: 1rem;
+    border-radius: 0 1rem 1rem 0;
+}
+
+#temperature.critical {
+    background-color: @red;
+}
+
 
 /*---[Workspaces]---*/
 
 #workspaces {
     background: @base;
-    border-radius: 0px 1rem 1rem 0px;
-    padding-right: 0.5rem;
+    border-radius: 0 1rem 1rem 0;
+    padding: 0 0.5rem;
     margin: 5px 0px; 
     color: @subtext1;
 }
@@ -94,50 +113,12 @@ window#waybar.empty .modules-center {
 }
 
 
-/*---[Window]---*/
-
-#window {
-    background: @base;
-    padding: 0px 15px 0px 15px;
-    border-radius: 0px 0px 1.3rem 1.5rem;
-    font-style: normal;
-    color: @subtext1;
-    transition: all 0.3s ease-in-out;
-}
-
-window#waybar.empty #window {
-    background: transparent;
-}
-
-.modules-center.empty {
-    background: transparent;
-}
-
-
-/*---[Custom Media]---*/
-
-#custom-media {
-    background-color: @accent;
-    border-radius: 0px 0px 1.5rem 1.5rem;
-    color: @base;
-    min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-    background-color: @accent;
-    color: @base;
-}
-
-#custom-media.custom-vlc {
-    background-color: @accent; 
-    color: @base;
-}
-
+#custom-media,
+#custom-power,
+#custom-lock,
+#custom-updates,
 #clock,
 #battery,
-#cpu,
-#memory,
-#temperature,
 #backlight,
 #network,
 #pulseaudio,
@@ -162,15 +143,46 @@ window#waybar.empty #window {
 }
 
 
+/*---[Media]---*/
+
+#custom-media {
+    background-color: @accent;
+    color: @base;
+    border-radius: 1rem;
+}
+
+
 /*---[Pulseaudio]---*/
 
 #pulseaudio {
     border-radius: 1rem 0px 0px 1rem;
     margin-left: 1rem;
+    padding-right: 0.7rem;
+}
+
+#pulseaudio.microphone {
+    margin-left: 0;
+    border-radius: 0;
+    padding-right: 0.7rem;
+    padding-left: 0;
+}
+
+
+/*---[Update]---*/
+
+#custom-updates {
+    border-radius: 0 1rem 1rem 0;
+    padding-right: 1rem;
+    padding-left: 0;
+    margin-right: 1rem;
 }
 
 
 /*---[Network]---*/
+
+#network {
+    border-radius: 1rem;
+}
 
 #network.disconnected {
     color: @red;
@@ -178,6 +190,10 @@ window#waybar.empty #window {
 
 
 /*---[Power Profiles]---*/
+
+#power-profiles-daemon {
+    border-radius: 0 1rem 1rem 0;
+}
 
 #power-profiles-daemon.performance {
     color: @red;
@@ -189,25 +205,6 @@ window#waybar.empty #window {
 
 #power-profiles-daemon.power-saver {
     color: @green;
-}
-
-
-/*---[System]---*/
-
-#cpu {
-    padding-left: 1rem;
-}
-
-#memory {
-    padding: 0rem;
-}
-
-#temperature {
-    padding-right: 1rem;
-}
-
-#temperature.critical {
-    background-color: @red;
 }
 
 
@@ -242,15 +239,15 @@ window#waybar.empty #window {
 /*---[Clock]---*/
 
 #clock {
-    border-radius: 0px 1rem 1rem 0px;
-    margin-right: 1rem;
+    border-radius: 1rem;
 }
 
 /*---[Tray]---*/
 
 #tray {
-    margin-right: 1rem;
-    border-radius: 1rem;
+    padding-left: 1rem;
+    padding-right: 0;
+    border-radius: 1rem 0 0 1rem;
 }
 
 #tray > .passive {
@@ -260,3 +257,16 @@ window#waybar.empty #window {
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
 }
+
+/*---[Power]---*/
+
+#custom-power {
+    color: @red;
+}
+
+#custom-lock {
+    border-radius: 1rem 0 0 1rem;
+    padding-right: 0.5rem;
+    margin-left: 1rem;
+}
+

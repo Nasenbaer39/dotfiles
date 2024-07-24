@@ -6,23 +6,26 @@
     // "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "hyprland/workspaces"
-    ],
-    "modules-center": [
-        "custom/media",
-        "hyprland/window"
-    ],
-    "modules-right": [
-        "pulseaudio", 
-        "backlight",
-        "network",
+        "hyprland/workspaces",
         "cpu",
         "memory",
         "temperature",
-        "power-profiles-daemon",
+        "network"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "custom/media",
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "backlight",
+        "custom/updates",
+        "tray",
+        "power-profiles-daemon", 
         "battery",
-        "clock",
-        "tray"
+        "custom/lock",
+        "custom/power"
     ],
     // Modules configuration
     "hyprland/workspaces" : {
@@ -54,14 +57,32 @@
 
     "tray": {
         "icon-size": 21,
-        "spacing": 10
+        "spacing": 10,
+        "escape": true
     },
 
     "clock": {
-        "timezone": "Europe/Berlin",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": " {:%d-%m-%Y}",
-        "format": " {:%H:%M}"
+        "format": "{:%A, %d %b %g | %I:%M %p}",
+        "format-alt": "{:%R 󰃭 %d·%m·%y}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b>{}</b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
     },
 
     "cpu": {
@@ -70,21 +91,21 @@
     },
 
     "memory": {
-        "format": " {}%"
+        "format": " {used:0.1f}GB",
+        "tooltip": false
     },
 
     "temperature": {
-        // "thermal-zone": 2,
         "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
         "format": "{icon} {temperatureC}°C",
         "format-icons": ["", "", ""],
-        "format-alt": ""
+        "tooltip": false
     },
 
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{icon} {percent}%",
+        "format": "{icon} {percent}",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
 
@@ -94,13 +115,11 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}%",
-        "format-full": "{icon} {capacity}% {icon}",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
+        "format": "{icon} {capacity}",
+        "format-full": "{icon} {capacity}",
+        "format-charging": " {capacity}",
+        "format-plugged": " {capacity}",
         "format-alt": "{icon} {time}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
     "power-profiles-daemon": {
@@ -115,33 +134,66 @@
     },
 
     "network": {
-        "format-wifi": " {signalStrength}%",
-        "format-ethernet": "",  
-        "tooltip-format-wifi": " {essid}", 
-        "format-disconnected": "⚠",
-        "tooltip-format-disconnected": "⚠ No Internet"
-    },
+        "format-wifi": "  {bandwidthDownBytes}  {bandwidthUpBytes}",
+        "format-ethernet": " {bandwidthDownBytes}   {bandwidthUpBytes}",
+        "format-disconnected": " 󰞃 ",
+        "format-alt": "󰤨  {essid} {signalStrength}% ",
+        "interval": 5,
+        "format-linked": "",
+        "tooltip-format": "󱘖 {ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)   \n{ipaddr} | {frequency} MHz {icon}",
+        "tooltip-format-ethernet": "{ifname}  \n{ipaddr} | {frequency} MHz{icon}",
+        "tooltip-format-disconnected": "Not Connected",
+        "on-click": "bash ~/.config/rofi/scripts/rofi-wifi-menu.sh"
+  },
 
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float
-        "format": "{icon} {volume}%",
-        "format-bluetooth": "{icon} {volume}%",
+        "format": "{icon} {volume}",
+        "format-muted": "",
         "format-icons": {
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "amixer set Master toggle"
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "on-click": "amixer set Capture toggle"
     },
 
     "custom/media": {
-        "format": "{icon} {}",
+        "format": " {}",
         "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
+        "max-length": 25,
+        "on-click": "playerctl play-pause --player spotify",
+        "on-click-right": "playerctl next --player spotify",
+        "on-click-middle": "playerctl previous --player spotify",
+        "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify",
         "escape": true,
-        // "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources folder
-        "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+        "tooltip": true
+    },
+
+    "custom/power": {
+        "tooltip": false,
+        "on-click": "wlogout &",
+        "format": ""
+    },
+
+    "custom/lock": {
+        "tooltip": false,
+        "on-click": "sh -c '(sleep 0.5s; hyprlock --grace 0)' & disown",
+        "format": ""
+    },
+
+    "custom/updates": {
+        "exec": "~/.config/hypr/scripts/update.sh",
+        "return-type": "json",
+        "format": "󰮯  {}",
+        "on-click": "~/.config/hypr/scripts/update.sh up",
+        "interval": 86400, // once every day
+        "tooltip": true,
     }
 }
