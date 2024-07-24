@@ -18,6 +18,9 @@ export FZF_DEFAULT_OPTS=" \
 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
 --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796"
 
+path+=("${HOME}/.local/scripts")
+export PATH
+
 # Initialize oh-my-posh
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/minimal.toml)"
 
@@ -40,8 +43,9 @@ zinit cdreplay -q
 
 # Keybindings
 bindkey -e
-bindkey '^p' history-search-backward
-bindkey '^n' history-search-forward
+bindkey '^k' history-search-backward
+bindkey '^j' history-search-forward
+bindkey -s '^f' 'zellij-sessionizer.sh ~/dev/rust ~/dev/c++ ~/bin^M'
 
 # History
 HISTSIZE=5000
