@@ -188,11 +188,13 @@
     },
 
     "custom/updates": {
-        "exec": "~/.local/scripts/update.sh",
-        "return-type": "json",
-        "format": "󰮯  {}",
-        "on-click": "~/.local/scripts/update.sh up",
-        "interval": 86400, // once every day
-        "tooltip": true,
-    }
+       "format": "{} {icon}",
+       "return-type": "json",
+       "format-icons": {
+           "has-updates": "󱍷",
+           "updated": "󰂪"
+       },
+       "exec-if": "which waybar-module-pacman-updates",
+       "exec": "waybar-module-pacman-updates  --interval-seconds 5 --network-interval-seconds 300"
+   }
 }
