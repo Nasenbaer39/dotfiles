@@ -1,11 +1,12 @@
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
 keybinds {
     normal clear-defaults=true {
-        bind "Ctrl b" { SwitchToMode "Tmux"; } 
-        bind "Alt h" { NewPane "Left"; }
-        bind "Alt l" { NewPane "Right"; }
-        bind "Alt j" { NewPane "Down"; }
-        bind "Alt k" { NewPane "Up"; }
+        bind "Ctrl Space" { SwitchToMode "Tmux"; }
+        bind "Alt n" { NewPane; }
+        bind "Ctrl h" { MoveFocusOrTab "Left"; }
+        bind "Ctrl l" { MoveFocusOrTab "Right"; }
+        bind "Ctrl j" { MoveFocus "Down"; }
+        bind "Ctrl k" { MoveFocus "Up"; }
         bind "Alt =" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt i" { MoveTab "Left"; }
@@ -13,15 +14,16 @@ keybinds {
         bind "Alt x" { CloseFocus; SwitchToMode "Normal"; }
         bind "Alt w" { ToggleFloatingPanes;}
         bind "Alt t" { NewTab;}
+        bind "Alt d" { Detach;}
     }
-    tmux {
-        bind "Ctrl b" { Write 2; SwitchToMode "Normal"; }
+    tmux clear-defaults=true {
+        bind "Ctrl Space" { Write 2; SwitchToMode "Normal"; }
         bind "Esc" { SwitchToMode "Normal"; }
         bind "g" { SwitchToMode "Locked"; }
         bind "p" { SwitchToMode "Pane"; }
         bind "t" { SwitchToMode "Tab"; }
         bind "n" { SwitchToMode "Resize"; }
-        bind "h" { SwitchToMode "Move"; }
+        bind "m" { SwitchToMode "Move"; }
         bind "s" { SwitchToMode "Scroll"; }
         bind "o" { SwitchToMode "Session"; }
         bind "q" { Quit; }
