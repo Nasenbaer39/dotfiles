@@ -114,12 +114,13 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}",
-        "format-full": "{icon} {capacity}",
-        "format-charging": " {capacity}",
-        "format-plugged": " {capacity}",
+        "format": "{icon}",
+        "format-full": "{icon}",
+        "format-charging": "",
+        "format-plugged": "",
         "format-alt": "{icon} {time}",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+        "tooltip-format": "{capacity}% | {time}"
     },
     "power-profiles-daemon": {
       "format": "{icon}", 
@@ -133,7 +134,7 @@
     },
 
     "network": {
-        "format-wifi": " {bandwidthDownBytes}  {bandwidthUpBytes}",
+        "format-wifi": " {bandwidthDownBytes}   {bandwidthUpBytes}",
         "format-ethernet": " {bandwidthDownBytes}   {bandwidthUpBytes}",
         "format-disconnected": " 󰞃 ",
         "format-alt": "󰤨  {essid} {signalStrength}% ",
@@ -188,7 +189,7 @@
     },
 
     "custom/updates": {
-       "format": "{} {icon}",
+       "format": "{icon}  {}",
        "return-type": "json",
        "format-icons": {
            "has-updates": "󱍷",

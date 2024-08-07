@@ -197,6 +197,7 @@ window#waybar {
 
 #power-profiles-daemon {
     border-radius: 0 1rem 1rem 0;
+    padding: 0.5rem;
 }
 
 window.eDP-1 #power-profiles-daemon {
@@ -227,7 +228,7 @@ window.eDP-1 #power-profiles-daemon {
 
 #battery {
     border-radius: 0 1rem 1rem 0;
-    padding-left: 0;
+    padding-left: 0.4rem;
 }
 
 #battery.charging, #battery.plugged {
@@ -235,7 +236,7 @@ window.eDP-1 #power-profiles-daemon {
 }
 
 #battery.warning:not(.charging) {
-    color: @orange;
+    color: @peach;
 }
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
