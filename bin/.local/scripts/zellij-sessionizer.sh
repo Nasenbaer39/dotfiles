@@ -10,7 +10,7 @@ fi
 
 # Check whether the machine has fd available
 if [ -x "$(command -v fd)" ]; then
-	selected_path=$(fd . $paths --min-depth 1 --max-depth 1 --type d | fzf)
+	selected_path=$(fd . $paths --min-depth 1 --max-depth 1 --type d | wofi -d)
 else
 	# defer to find if not
 	selected_path=$(find $paths -mindepth 1 -maxdepth 1 -type d | fzf)
