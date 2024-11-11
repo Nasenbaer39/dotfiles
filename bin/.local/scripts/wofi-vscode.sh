@@ -17,6 +17,8 @@ fi
 # Check if a folder was selected (non-empty string)
 if [ -n "$selected_path" ]; then
     # Open the folder in VSCode
-    code "$selected_path"
+    cd $selected_path
+    git pull
+    code .
 fi
 
