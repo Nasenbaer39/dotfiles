@@ -20,7 +20,6 @@
         "pulseaudio",
         "pulseaudio#microphone",
         "backlight",
-        "custom/updates",
         "tray",
         "power-profiles-daemon", 
         "battery",
