@@ -19,6 +19,6 @@ if [ -n "$selected_path" ]; then
     # Open the folder in VSCode
     cd $selected_path
     git pull
-    code .
+    zeditor .
 fi
 
