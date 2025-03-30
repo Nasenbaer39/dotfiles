@@ -44,18 +44,9 @@
             "exportPdf": "onType",
             "outputPath": "$root/target/$dir/$name"
           }
-        },
-        "tinymist.preview.background.enabled": true
+        }
       }
     }
-  },
-  "keybindings": {
-    "custom": [
-      {
-        "key": "ctrl+alt+p",
-        "command": "tinymist.startBackgroundPreview"
-      }
-    ]
   },
   "diagnostics": {
     "include_warnings": false,
