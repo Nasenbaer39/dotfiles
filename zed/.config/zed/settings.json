@@ -36,15 +36,33 @@
           "arguments": ["--style=file", "--assume-filename={buffer_path}"]
         }
       }
-    },
-    "Typst": {
-      "lsp": {
-        "tinymist": {
-          "settings": {
-            "exportPdf": "onType",
-            "outputPath": "$root/target/$dir/$name"
+    }
+  },
+  "lsp": {
+    "texlab": {
+      "settings": {
+        "texlab": {
+          "build": {
+            "onSave": true,
+            "forwardSearchAfter": true
+          },
+          "forwardSearch": {
+            "executable": "zathura",
+            "args": [
+              "--synctex-forward",
+              "%l:1:%f",
+              "-x",
+              "zed %%{input}:%%{line}",
+              "%p"
+            ]
           }
         }
+      }
+    },
+    "tinymist": {
+      "settings": {
+        "exportPdf": "onType",
+        "outputPath": "$root/target/$dir/$name"
       }
     }
   },
