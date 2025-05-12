@@ -7,10 +7,14 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "assistant": {
+  "agent": {
+    "inline_assistant_model": {
+      "provider": "ollama",
+      "model": "gemma3:1b"
+    },
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-latest"
+      "provider": "ollama",
+      "model": "deepseek-r1:7b"
     },
     "version": "2"
   },
