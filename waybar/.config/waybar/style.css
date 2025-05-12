@@ -129,6 +129,7 @@ window#waybar {
 #custom-media,
 #tray,
 #network,
+#window,
 #power-profiles-daemon {
     background-color: @base;
     color: @subtext1;
@@ -179,6 +180,14 @@ window#waybar {
     padding-right: 1rem;
     padding-left: 0;
     margin-right: 1rem;
+}
+
+
+/*---[Window]---*/
+
+#window {
+    border-radius: 1rem;
+    margin-left: 1rem;
 }
 
 

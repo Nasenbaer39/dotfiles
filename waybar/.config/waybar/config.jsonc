@@ -10,7 +10,8 @@
         "cpu",
         "memory",
         "temperature",
-        "network"
+        "network",
+        "hyprland/window"
     ],
     "modules-center": [
         "clock"
