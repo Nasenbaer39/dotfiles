@@ -45,7 +45,7 @@ zinit cdreplay -q
 bindkey -e
 bindkey '^k' history-search-backward
 bindkey '^j' history-search-forward
-bindkey -s '^f' 'zellij-sessionizer.sh ~/dev/rust ~/dev/c++ ~/bin^M'
+bindkey -s '^f' 'zellij-sessionizer.sh ~/dev'
 
 # History
 HISTSIZE=5000

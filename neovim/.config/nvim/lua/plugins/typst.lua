@@ -29,7 +29,9 @@ return {
                             title = "pin",
                             command = "tinymist.pinMain",
                             arguments = { vim.api.nvim_buf_get_name(0) },
-                        }, { bufnr = bufnr })end, 
+                        }, { bufnr = bufnr })
+                        vim.cmd("TypstPreview")
+                    end, 
                         { desc = "[T]inymist [P]in", noremap = true })
 
                     vim.keymap.set("n", "<leader>tu", function()
@@ -37,7 +39,9 @@ return {
                             title = "unpin",
                             command = "tinymist.pinMain",
                             arguments = { vim.v.null },
-                        }, { bufnr = bufnr }) end,
+                        }, { bufnr = bufnr }) 
+                        vim.cmd("TypstPreviewStop")
+                    end,
                         { desc = "[T]inymist [U]npin", noremap = true })
                 end,
             }
